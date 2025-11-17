@@ -46,7 +46,7 @@ public class Humain {
 		texte.append("Bonjour ! Je m'appelle ");
 		texte.append(this.getNom());
 		texte.append(" et j'aime boire du ");
-		texte.append(this.boissonFavorite);
+		texte.append(this.boissonFavorite + ".");
 
 
 		parler(texte.toString());
