@@ -31,5 +31,7 @@ public static void main(String[] args) {
 	Ronin roro = new Ronin("Roro", 60);
 	roro.direBonjour();
 	roro.donner(marco);
+	
+	roro.provoquer(yaku);
 }
 }

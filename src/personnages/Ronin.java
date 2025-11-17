@@ -1,5 +1,6 @@
 package personnages;
 
+
 public class Ronin extends Humain {
 
 	private int honneur = 1;
@@ -24,32 +25,22 @@ public class Ronin extends Humain {
 		
 	}
 	
-	public void gagner(int gain) {
-		parler("Je t'ai eu petit Yakuza !");
-		this.gagnerArgent(gain);
-		this.honneur++;
-		
-	}
-	
-	public void perdre() {
-		this.honneur--;
-		this.argent=0;
-		parler("J'ai perdu contre ce yakuza, mon honneur et ma bourse ont en pris un coup");
-	}
-	
-	
 	public void provoquer(Yakuza adversaire) {
 		int force = this.honneur*2;
 		
-		if (force>=adversaire.getReputation()) {
-			int butin = adversaire.getArgent();
-			this.gagner(butin);
+		parler("Je t'ai retrouvé vermine, tu vas payer pour ce que tu as fait à ce pauvre marchand!");
+		if(force>=adversaire.getReputation()) {
+			parler("Je t'ai eu petit yakuza !");
+			this.argent+=adversaire.getArgent();
+			this.honneur++;
+			adversaire.perdre();
 			
+		} else {
+			parler("J'ai perdu contre ce yakuza, mon honneur et ma bourse ont en pris un coup.");
+			this.honneur--;
+			adversaire.gagner(this.argent);
+			this.argent =0;
 		}
-		else {
-			this.perdre();
-		}
-		
 	}
 	
 
