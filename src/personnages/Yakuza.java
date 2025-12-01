@@ -1,16 +1,6 @@
 package personnages;
 
 public class Yakuza extends Humain {
-	
-	@Override
-	public void direBonjour() {
-		super.direBonjour();
-		StringBuilder texte = new StringBuilder();
-		texte.append("Mon clan est celui de ");
-		texte.append(this.clan);
-		parler(texte.toString());
-		
-	}
 
 	private String clan;
 	private int reputation = 0;
@@ -19,6 +9,16 @@ public class Yakuza extends Humain {
 		super(nom, "whisky", argent);
 		this.clan = clan;
 
+	}
+	
+	@Override
+	public void direBonjour() {
+		super.direBonjour();
+		StringBuilder texte = new StringBuilder();
+		texte.append("Mon clan est celui de ");
+		texte.append(clan);
+		parler(texte.toString());
+		
 	}
 
 	public int getReputation() {
@@ -29,7 +29,7 @@ public class Yakuza extends Humain {
 		parler("Tiens, tiens, ne serait-ce pas un faible marchand qui passe par là ?");
 		parler(victime.getNom() + ", si tu tiens à la vie donne moi ta bourse !");
 		int butin = victime.seFaireExtorquer();
-		this.argent += butin;
+		argent += butin;
 		StringBuilder phraseDeFin = new StringBuilder();
 		phraseDeFin.append("J'ai piqué les ");
 		phraseDeFin.append(butin);
@@ -46,7 +46,7 @@ public class Yakuza extends Humain {
 		this.reputation--;
 		StringBuilder texte = new StringBuilder();
 		texte.append("J'ai perdu mon duel et mes ");
-		texte.append(this.getArgent());
+		texte.append(getArgent());
 		texte.append(" sous, snif... J'ai déshonoré le clan de " + this.clan);
 		this.argent = 0;
 		parler(texte.toString());

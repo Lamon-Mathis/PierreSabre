@@ -9,7 +9,6 @@ public class Humain {
 	protected Humain[] memoire = new Humain[30];
 
 	public Humain(String nom, String boissonFavorite, int argent) {
-		super();
 		this.nom = nom;
 		this.boissonFavorite = boissonFavorite;
 		this.argent = argent;
@@ -46,9 +45,9 @@ public class Humain {
 	public void direBonjour() {
 		StringBuilder texte = new StringBuilder();
 		texte.append("Bonjour ! Je m'appelle ");
-		texte.append(this.getNom());
+		texte.append(nom);
 		texte.append(" et j'aime boire du ");
-		texte.append(this.boissonFavorite + ".");
+		texte.append(boissonFavorite + ".");
 
 
 		parler(texte.toString());
@@ -58,7 +57,7 @@ public class Humain {
 	public void boire() {
 		StringBuilder texte = new StringBuilder();
 		texte.append("Hmmm, un bon verre de ");
-		texte.append(this.boissonFavorite);
+		texte.append(boissonFavorite);
 		texte.append(" ! GLOUPS !");
 		parler(texte.toString());
 	}

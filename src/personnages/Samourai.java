@@ -1,12 +1,12 @@
 package personnages;
 
-public class Samourai extends Humain{
-	
+public class Samourai extends Humain {
+
 	private String seigneur;
 
 	public Samourai(String seigneur, String nom, String boissonFavorite, int argent) {
 		super(nom, boissonFavorite, argent);
-		this.seigneur=seigneur;
+		this.seigneur = seigneur;
 	}
 
 	@Override
@@ -23,9 +23,7 @@ public class Samourai extends Humain{
 		texte.append("Qu'est-ce que je vais choisir comme boisson ? Tiens je vais prendre du ");
 		texte.append(boisson + ".");
 		parler(texte.toString());
-		
+
 	}
-	
-	
 
 }
