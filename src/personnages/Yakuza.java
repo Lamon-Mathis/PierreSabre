@@ -1,6 +1,17 @@
 package personnages;
 
 public class Yakuza extends Humain {
+	
+	@Override
+	public void direBonjour() {
+		super.direBonjour();
+		StringBuilder texte = new StringBuilder();
+		texte.append("Mon clan est celui de ");
+		texte.append(this.clan);
+		parler(texte.toString());
+		
+	}
+
 	private String clan;
 	private int reputation = 0;
 
