@@ -10,7 +10,7 @@ public class Yakuza extends Humain {
 		this.clan = clan;
 
 	}
-	
+
 	@Override
 	public void direBonjour() {
 		super.direBonjour();
@@ -18,7 +18,7 @@ public class Yakuza extends Humain {
 		texte.append("Mon clan est celui de ");
 		texte.append(clan);
 		parler(texte.toString());
-		
+
 	}
 
 	public int getReputation() {
@@ -52,11 +52,11 @@ public class Yakuza extends Humain {
 		parler(texte.toString());
 
 	}
-	
+
 	public void gagner(int gain) {
-		
+
 		this.reputation++;
-		this.argent+=gain;
+		this.argent += gain;
 		StringBuilder texte = new StringBuilder();
 		texte.append("Ce ronin pensait vraiment battre " + this.getNom() + " du clan de " + this.clan + " ?");
 		texte.append(" Je l'ai dépouillé de ses ");

@@ -2,10 +2,10 @@ package personnages;
 
 import java.util.Random;
 
-
 public class Traitre extends Samourai {
 
 	private int niveauTraitrise = 0;
+	Random pick = new Random();
 
 	public Traitre(String seigneur, String nom, String boissonFavorite, int argent) {
 		super(seigneur, nom, boissonFavorite, argent);
@@ -39,15 +39,14 @@ public class Traitre extends Samourai {
 
 		}
 	}
-	
+
 	public void faireLeGentil() {
-		if (nbConnaissance<1) {
+		if (nbConnaissance < 1) {
 			parler("Je ne peux faire ami ami avec personne car je ne connais personne ! Snif");
-			
+
 		} else {
-			Random pick = new Random();
 			Humain ami = memoire[pick.nextInt(nbConnaissance)];
-			int don = argent * 1 /20;
+			int don = argent * 1 / 20;
 			String nomAmi = ami.getNom();
 			parler("Il faut absolument remonter ma cote de confiance. Je vais faire ami ami avec " + nomAmi + ".");
 			StringBuilder texte = new StringBuilder();
@@ -58,7 +57,7 @@ public class Traitre extends Samourai {
 			perdreArgent(don);
 			String nom = getNom();
 			ami.parler("Merci " + nom + ", vous êtes quelqu'un de bien ");
-			if (niveauTraitrise>1) {
+			if (niveauTraitrise > 1) {
 				niveauTraitrise--;
 			}
 
