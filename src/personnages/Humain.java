@@ -5,6 +5,8 @@ public class Humain {
 	private String nom;
 	private String boissonFavorite;
 	protected int argent;
+	protected int nbConnaissance = 0;
+	protected Humain[] memoire = new Humain[30];
 
 	public Humain(String nom, String boissonFavorite, int argent) {
 		super();
@@ -27,12 +29,12 @@ public class Humain {
 		}
 	}
 
-	public void gagnerArgent(int gain) {
+	protected void gagnerArgent(int gain) {
 		isPriceValid(gain);
 		this.argent += gain;
 	}
 
-	public void perdreArgent(int perte) {
+	protected void perdreArgent(int perte) {
 		isPriceValid(perte);
 		this.argent -= perte;
 	}
@@ -88,4 +90,35 @@ public class Humain {
 		parler(texte.toString());
 
 	}
+	
+	private void memoriser(Humain humain) {
+		if(this.nbConnaissance<30) {
+			this.memoire[nbConnaissance] = humain;
+			this.nbConnaissance++;
+		}
+	}
+	
+	private void repondre(Humain humain) {
+		this.direBonjour();
+		this.memoriser(humain);
+	}
+	
+	public void faireConnaissanceAvec(Humain autreHumain) {
+		this.direBonjour();
+		autreHumain.repondre(this);
+		this.memoriser(autreHumain);
+	}
+	
+	public void listerConnaissance() {
+		StringBuilder texte = new StringBuilder();
+		texte.append("Je connais beaucoup de monde dont : ");
+		for (int i = 0; i < this.nbConnaissance-1; i++) {
+			texte.append((this.memoire[i]).getNom() + ", ");
+		}
+		texte.append((this.memoire[this.nbConnaissance-1]).getNom() + ".");
+		
+		parler(texte.toString());
+	}
+	
+	
 }
